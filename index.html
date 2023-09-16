@@ -1,12 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>重定向中...</title>
-    <script type="text/javascript">window.location.href="https://blog.qsim.top";</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Return</title>
+  <link rel="icon" sizes="64x64" href="//qsim.top/favicon.ico">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow-y: hidden;
+    }
+    a {
+      color: gray;
+      text-decoration: none;
+    }
+    a:hover {
+      color: black;
+      text-decoration: underline;
+    }
+    #c {
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    
+  <div id="c">
+    <h1 id="title"></h1>
+    <span id="intro"></span>
+  </div>
+  
+  <script>
+    const language = navigator.language; // 获取浏览器语言首选项
+
+    let titleText = '';
+    let introText = '';
+    let continueLinkText = '';
+
+    // 根据语言设置文本
+    if (language.includes('zh')) {
+      titleText = '跳转中.....';
+      introText = '如未跳转，请点击以下链接继续访问：';
+      continueLinkText = '点击此处';
+    } else {
+      titleText = 'Redirecting.....';
+      introText = 'If not redirected, please click the following link to continue:';
+      continueLinkText = 'Click here';
+    }
+
+    document.getElementById('title').innerText = titleText;
+    document.getElementById('intro').innerText = introText;
+    const continueLink = document.createElement('a');
+    continueLink.href = `https://qsim.top`;
+    continueLink.innerText = continueLinkText;
+    document.getElementById('intro').appendChild(continueLink);
+
+    let count = 5; // 设置倒计时秒数
+    const countdownElement = document.createElement('p');
+    countdownElement.id = 'countdown';
+    document.getElementById('intro').appendChild(countdownElement);
+
+    function updateCountdown() {
+		if (language.includes('zh')) {
+			countdownElement.innerText = `跳转将在 ${count} 秒后执行`;
+		}else{
+			countdownElement.innerText = `Redirecting in ${count} seconds`;
+		}
+      count--;
+      if (count >= 0) {
+        setTimeout(updateCountdown, 1000);
+      } else {
+        window.location.href = `https://qsim.top`;
+      }
+    }
+
+    updateCountdown();
+  </script>
 </body>
 </html>
