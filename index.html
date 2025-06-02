@@ -77,8 +77,10 @@
       }
     }
 	document.addEventListener('click', () => {
-    		cancelRedirect = true;
-    		countdownElement.innerText = 'Redirect canceled by user.';
+	    if (!cancelRedirect) {
+	        cancelRedirect = true;
+	        countdownElement.innerText = 'Redirect canceled by user.';
+	    }
   	});
     updateCountdown();
   </script>
