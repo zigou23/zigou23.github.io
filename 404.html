@@ -1,28 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>重定向中...</title>
-  <script src="http://cdn.bootcss.com/purl/2.3.1/purl.min.js"></script>
-
-<script>
-var url = purl();
-if (url.attr('host') == 'zzzzx.ml') {
-    var old_url = url.attr('source');
-    var new_url = old_url.replace('zzzzx.ml', "blog.qsim.top");
-    window.location.replace(new_url); 
-}else if (url.attr('host') == 'www.zzzzx.ml') {
-    var old_url = url.attr('source');
-    var new_url = old_url.replace('www.zzzzx.ml', "blog.qsim.top");
-    window.location.replace(new_url);
-}else {
-    window.location.href="https://blog.qsim.top";
-}
-    
-</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:type" content="404">
+  <title>404 Not found</title>
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <link rel="icon" href="https://qsim.top/favicon.ico" sizes="64x64" type="image/png">
+  <style>
+  html,body {
+      background-color: #fff;
+      color: #636b6f;
+      font-family: 'Nunito', normal, sans-serif;
+      height: 100vh;
+      font-weight: 100;
+      margin: 0
+  }
+  .full-height {
+      height: 100vh
+  }
+  .emoji-height {
+      height: 80vh
+  }
+  .flex-center {
+      align-items: center;
+      display: flex;
+      justify-content: center
+  }
+  .position-ref {
+      position: relative
+  }
+  .code {
+      border-right: 2px solid;
+      font-size: 26px;
+      padding: 0 15px 0 15px;
+      text-align: center
+  }
+  .message {
+      font-size: 18px;
+      text-align: center
+  }
+  </style>
 </head>
+
 <body>
-  
+  <div class="flex-center position-ref full-height">
+    <div class="code">404</div>
+    <div class="message" style="padding:10px">
+      Not found
+    </div>
+  </div>
 </body>
 </html>
