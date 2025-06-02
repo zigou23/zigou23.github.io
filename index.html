@@ -38,6 +38,7 @@
     let titleText = '';
     let introText = '';
     let continueLinkText = '';
+    let count = 5; //time s
 
     if (language.includes('??')) { //language
       titleText = 'Redirecting.....';
@@ -56,19 +57,15 @@
     continueLink.innerText = continueLinkText;
     document.getElementById('intro').appendChild(continueLink);
 
-    let count = 5; //time s
     let cancelRedirect = false;
     const countdownElement = document.createElement('p');
     countdownElement.id = 'countdown';
     document.getElementById('intro').appendChild(countdownElement);
 
     function updateCountdown() {
-	    	if (cancelRedirect) return;
-		if (language.includes('??')) { //language
-			countdownElement.innerText = `Redirecting in ${count} seconds`;
-		}else{
-			countdownElement.innerText = `Redirecting in ${count} seconds`;
-		}
+      if (cancelRedirect) return;
+      countdownElement.innerText = `Redirecting in ${count} seconds`;
+
       count--;
       if (count >= 0) {
         setTimeout(updateCountdown, 1000);
