@@ -41,11 +41,11 @@
 
     if (language.includes('??')) { //language
       titleText = 'Redirecting.....';
-      introText = 'If not redirected, please click the following link to continue:';
+      introText = 'If not redirected, please click the following link to continue: ';
       continueLinkText = 'Click here';
     } else {
       titleText = 'Redirecting.....';
-      introText = 'If not redirected, please click the following link to continue:';
+      introText = 'If not redirected, please click the following link to continue: ';
       continueLinkText = 'Click here';
     }
 
@@ -57,11 +57,13 @@
     document.getElementById('intro').appendChild(continueLink);
 
     let count = 5; //time s
+    let cancelRedirect = false;
     const countdownElement = document.createElement('p');
     countdownElement.id = 'countdown';
     document.getElementById('intro').appendChild(countdownElement);
 
     function updateCountdown() {
+	    	if (cancelRedirect) return;
 		if (language.includes('??')) { //language
 			countdownElement.innerText = `Redirecting in ${count} seconds`;
 		}else{
@@ -74,7 +76,10 @@
         window.location.href = `https://qsim.top`;
       }
     }
-
+	document.addEventListener('click', () => {
+    		cancelRedirect = true;
+    		countdownElement.innerText = 'Redirect canceled by user.';
+  	});
     updateCountdown();
   </script>
 </body>
