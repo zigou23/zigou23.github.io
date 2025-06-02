@@ -33,17 +33,16 @@
   </div>
   
   <script>
-    const language = navigator.language; // 获取浏览器语言首选项
+    const language = navigator.language;
 
     let titleText = '';
     let introText = '';
     let continueLinkText = '';
 
-    // 根据语言设置文本
-    if (language.includes('zh')) {
-      titleText = '跳转中.....';
-      introText = '如未跳转，请点击以下链接继续访问：';
-      continueLinkText = '点击此处';
+    if (language.includes('??')) { //language
+      titleText = 'Redirecting.....';
+      introText = 'If not redirected, please click the following link to continue:';
+      continueLinkText = 'Click here';
     } else {
       titleText = 'Redirecting.....';
       introText = 'If not redirected, please click the following link to continue:';
@@ -57,14 +56,14 @@
     continueLink.innerText = continueLinkText;
     document.getElementById('intro').appendChild(continueLink);
 
-    let count = 5; // 设置倒计时秒数
+    let count = 5; //time s
     const countdownElement = document.createElement('p');
     countdownElement.id = 'countdown';
     document.getElementById('intro').appendChild(countdownElement);
 
     function updateCountdown() {
-		if (language.includes('zh')) {
-			countdownElement.innerText = `跳转将在 ${count} 秒后执行`;
+		if (language.includes('??')) { //language
+			countdownElement.innerText = `Redirecting in ${count} seconds`;
 		}else{
 			countdownElement.innerText = `Redirecting in ${count} seconds`;
 		}
